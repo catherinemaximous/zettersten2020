@@ -97,10 +97,11 @@ var jsPsychLearning = (function (jspsych) {
             // [width, height]
             // 100vh x 25vh (4:1), scaled to the window height,
             // unless the window is too narrow for that, then 80vw x 20vw (still 4:1)
+            // minimum size so the images are not too small on smaller screens
             container_size: {
                 type: jspsych.ParameterType.STRING,
                 array: true,
-                default: ['min(100vh, 80vw)', 'min(25vh, 20vw)'],
+                default: ['max(820px, min(100vh, 80vw))', 'max(205px, min(25vh, 20vw))'],
             },
             
         },

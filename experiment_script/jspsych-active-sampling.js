@@ -63,17 +63,19 @@ var jsPsychSampling = (function (jspsych) {
             },
 
             // [width, height] of the learning container (top), same as the container in jspsych-learning
+            // minimum size so the images are not too small on smaller screens
             learning_container_size: {
                 type: jspsych.ParameterType.STRING,
                 array: true,
-                default: ['min(100vh, 80vw)', 'min(25vh, 20vw)'],
+                default: ['max(820px, min(100vh, 80vw))', 'max(205px, min(25vh, 20vw))'],
             },
 
             // [width, height] of the sampling container (bottom); same width as the learning container
+            // minimum size so the images are not too small on smaller screens
             sampling_container_size: {
                 type: jspsych.ParameterType.STRING,
                 array: true,
-                default: ['min(100vh, 80vw)', 'min(50vh, 40vw)'],
+                default: ['max(820px, min(100vh, 80vw))', 'max(410px, min(50vh, 40vw))'],
             },
 
             

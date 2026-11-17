@@ -369,13 +369,13 @@ function buildTimeline() {
   timeline.push({
     type: jsPsychInstructions,
     pages: [instruction_format(`Great job! Now, you will complete another round of the experiment with a brand new set of aliens.
-      Just like at the beginning of the last round, we will first check that your audio is still working properly. We will play you simple words and ask you to type in what you hear. Remember that we will only accept HITs in which people pass this audio test. Click NEXT to start the audio test!`)], 
+      Click NEXT when you are ready!`)], 
     show_clickable_nav: true
   });
 
   timeline.push({
     type: jsPsychInstructions,
-    pages: [instruction_format(`Great! Now, let's begin with the new round, with a new set of aliens. These aliens and their names will be completely different and are not related to the aliens you just learned about.
+    pages: [instruction_format(`Let's begin with the new round, with a new set of aliens. These aliens and their names will be completely different and are not related to the aliens you just learned about.
       Just like earlier, you will learn the names for 8 brand new alien creatures. On each trial, you will see two aliens and hear and read two names. As before, you won't know at first which name goes with which alien because the names appear in random order. Try to figure out over time which name goes with which alien. Please do not write any information down - just do your best to remember and learn the names as you go. Remember that you'll hear the name for each of the two aliens and read them on the screen, but the order of the names will be completely random (so, for example, the first name that appears does not necessarily go with the left alien). Make sure your audio is still on, then click NEXT to start learning!`)], 
     show_clickable_nav: true
   });

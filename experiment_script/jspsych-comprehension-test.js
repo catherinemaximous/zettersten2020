@@ -48,17 +48,19 @@ var jsPsychComprehensionTest = (function (jspsych) {
             },
 
             // [width, height] of the testing container (top), same as the container in jspsych-learning
+            // minimum size so the images are not too small on smaller screens
             testing_container_size: {
                 type: jspsych.ParameterType.STRING,
                 array: true,
-                default: ['min(100vh, 80vw)', 'min(25vh, 20vw)'],
+                default: ['max(820px, min(100vh, 80vw))', 'max(205px, min(25vh, 20vw))'],
             },
 
             // [width, height] of the afc container (bottom), same as the sampling container in jspsych-sampling
+            // minimum size so the images are not too small on smaller screens
             afc_container_size: {
                 type: jspsych.ParameterType.STRING,
                 array: true,
-                default: ['min(100vh, 80vw)', 'min(50vh, 40vw)'],
+                default: ['max(820px, min(100vh, 80vw))', 'max(410px, min(50vh, 40vw))'],
             },
 
             
