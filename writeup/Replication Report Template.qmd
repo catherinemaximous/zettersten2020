@@ -155,32 +155,31 @@ library(tidyverse)
 library(AICcmodavg) 
 ```
 
-```{r}
-### Data Preprocess (files in raw_data will not be pushed to github)
-read_path  <- here::here("..", "data", "raw_data")
-write_path <- here::here("..", "data","processed_data")
-filename <- "Zettersten2020_replication_processed_data.csv"
-
-files <- list.files(read_path, pattern = "\\.csv$", full.names = TRUE)
-
-all_data <- files |>
-  set_names(basename) |>
-  map(read_csv) |>
-  list_rbind(names_to = "file") |>
-  filter(!(trial_type == "survey-text" & trial_index == 2)) # removing students UCSD PID
-
-dir.create(write_path, showWarnings = FALSE)
-write_csv(all_data, file.path(write_path, filename))
-```
 
 ``` {r}
 #### Import data
-read_path <- here::here("..", "data","processed_data")
-d <- read.csv(file.path(read_path, "Zettersten2020_replication_processed_data.csv"))
+read_path  <- here::here("..", "data")
+d <- read.csv(file.path(read_path, "Zettersten2020_replication_preprocessed_data.csv"))
 
 #### Data exclusion / filtering
+audio_attncheck <- d |>
+  filter(trial_type == "survey-html-form") |>
+  mutate(
+    response = str_trim(str_to_lower(response)),
+    correct    = response %in% c("apple", "ball")
+  )
 
+exclude_participants <- audio_attncheck |>
+  filter(!correct) |>
+  distinct(subject_id) |>
+  pull(subject_id)
 
+exclude_participants
+
+d_withoutexclusions <- d
+
+d <- d |>
+  filter(!subject_id %in% exclude_participants)
 #### Prepare data for analysis - create columns etc.
 ```
 

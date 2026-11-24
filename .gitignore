@@ -59,3 +59,5 @@ rsconnect/
 *.html
 .DS_Store
 .Rproj.user
+data/raw_data/compile_raw.R
+data/raw_data/raw_data.Rproj
